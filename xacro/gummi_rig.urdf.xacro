@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot
   name="gummi" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <link name="base"/>
 
-<xacro:include filename="$(env GUMMI_LEFTBASEPATH)/xacro/gummi_description.urdf.xacro" />
-<xacro:include filename="$(env GUMMI_RIGHTBASEPATH)/xacro/gummi_description.urdf.xacro" />
+<xacro:include filename="$(env GUMMI_LEFTBASEPATH)/xacro/gummi_left.urdf.xacro" />
+<xacro:include filename="$(env GUMMI_RIGHTBASEPATH)/xacro/gummi_right.urdf.xacro" />
 
-<joint name="leftbase_displacement" type="fixed">
-  <origin rpy="0 0 0" xyz="-0.2 0 0"/>
-  <parent link="base"/>
-  <child link="left_base_link"/>
-  <axis xyz="0 0 0"/>
-</joint>
+<link name="base_link"/>
 
 <joint name="rightbase_displacement" type="fixed">
   <origin rpy="0 0 0" xyz="0.2 0 0"/>
-  <parent link="base"/>
-  <child link="base_link"/>
+  <parent link="base_link"/>
+  <child link="right_base_link"/>
+  <axis xyz="0 0 0"/>
+</joint>
+
+<joint name="leftbase_displacement" type="fixed">
+  <origin rpy="-3.14 0 0" xyz="-0.2 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_base_link"/>
   <axis xyz="0 0 0"/>
 </joint>
 

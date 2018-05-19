@@ -4,7 +4,6 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
 <robot name="gummi" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <link name="base"/>
   <link name="left_base_link">
     <inertial>
       <origin rpy="0 0 0" xyz="-9.81410393552373E-06 -0.0460000689343235 -0.0065295158451983"/>
@@ -591,7 +590,7 @@
     <limit effort="0" lower="0" upper="0.8" velocity="0"/>
     <mimic joint="left_gripper"/>
   </joint>
-  <link name="base_link">
+  <link name="right_base_link">
     <inertial>
       <origin rpy="0 0 0" xyz="-9.81410393552373E-06 -0.0460000689343235 -0.0065295158451983"/>
       <mass value="0.335467320988356"/>
@@ -637,7 +636,7 @@
   </link>
   <joint name="shoulder_yaw" type="revolute">
     <origin rpy="0 0 0" xyz="-0.00027025 -0.10997 0.008"/>
-    <parent link="base_link"/>
+    <parent link="right_base_link"/>
     <child link="shoulder_preroll"/>
     <axis xyz="0 0 1"/>
     <limit effort="0" lower="-0.75" upper="1" velocity="0"/>
@@ -1177,16 +1176,17 @@
     <limit effort="0" lower="0" upper="0.8" velocity="0"/>
     <mimic joint="gripper"/>
   </joint>
-  <joint name="leftbase_displacement" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.2 0 0"/>
-    <parent link="base"/>
-    <child link="left_base_link"/>
-    <axis xyz="0 0 0"/>
-  </joint>
+  <link name="base_link"/>
   <joint name="rightbase_displacement" type="fixed">
     <origin rpy="0 0 0" xyz="0.2 0 0"/>
-    <parent link="base"/>
-    <child link="base_link"/>
+    <parent link="base_link"/>
+    <child link="right_base_link"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <joint name="leftbase_displacement" type="fixed">
+    <origin rpy="-3.14 0 0" xyz="-0.2 0 0"/>
+    <parent link="base_link"/>
+    <child link="left_base_link"/>
     <axis xyz="0 0 0"/>
   </joint>
 </robot>
