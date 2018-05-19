@@ -29,7 +29,7 @@
     <joint name="left_shoulder_pitch"/>
     <joint name="left_upperarm_roll"/>
     <joint name="left_elbow"/>
-    <joint name="fastswitch"/>
+    <joint name="left_fastswitch"/>
     <joint name="left_forearm_roll"/>
     <joint name="left_wrist_pitch"/>
   </group>
