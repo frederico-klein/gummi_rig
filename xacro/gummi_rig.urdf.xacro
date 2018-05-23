@@ -17,7 +17,7 @@
 <joint name="leftbase_displacement" type="fixed">
   <origin rpy="-3.14 0 0" xyz="-0.2 0 0"/>
   <parent link="base_link"/>
-  <child link="left_base_link"/>
+  <child link="left/base_link"/>
   <axis xyz="0 0 0"/>
 </joint>
 

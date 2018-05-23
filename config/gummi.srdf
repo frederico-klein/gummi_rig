@@ -24,80 +24,64 @@
   <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
   <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
   <group name="left_arm">
-    <joint name="left_shoulder_yaw"/>
-    <joint name="left_shoulder_roll"/>
-    <joint name="left_shoulder_pitch"/>
-    <joint name="left_upperarm_roll"/>
-    <joint name="left_elbow"/>
-    <joint name="left_fastswitch"/>
-    <joint name="left_forearm_roll"/>
-    <joint name="left_wrist_pitch"/>
+    <joint name="left/shoulder_yaw"/>
+    <joint name="left/shoulder_roll"/>
+    <joint name="left/shoulder_pitch"/>
+    <joint name="left/upperarm_roll"/>
+    <joint name="left/elbow"/>
+    <joint name="left/fastswitch"/>
+    <joint name="left/forearm_roll"/>
+    <joint name="left/wrist_pitch"/>
+    <joint name="left/coupling_tool"/>
   </group>
   <group name="left_gripper">
-    <link name="left_wrist"/>
-    <joint name="left_gripper"/>
+    <link name="left/wrist"/>
+    <joint name="left/gripper"/>
   </group>
   <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
   <group_state group="left_arm" name="default">
-    <joint name="left_shoulder_pitch" value="0"/>
-    <joint name="left_shoulder_roll" value="0"/>
-    <joint name="left_shoulder_yaw" value="0"/>
-    <joint name="left_upperarm_roll" value="0"/>
-    <joint name="left_elbow" value="0"/>
-    <joint name="left_forearm_roll" value="0"/>
-    <joint name="left_wrist_pitch" value="0"/>
+    <joint name="left/shoulder_pitch" value="0"/>
+    <joint name="left/shoulder_roll" value="0"/>
+    <joint name="left/shoulder_yaw" value="0"/>
+    <joint name="left/upperarm_roll" value="0"/>
+    <joint name="left/elbow" value="0"/>
+    <joint name="left/forearm_roll" value="0"/>
+    <joint name="left/wrist_pitch" value="0"/>
   </group_state>
   <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-  <end_effector group="left_gripper" name="left_eef" parent_group="left_arm" parent_link="left_wrist"/>
+  <end_effector group="left_gripper" name="left_eef" parent_group="left_arm" parent_link="left/tool"/>
   <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
-  <virtual_joint child_link="left_base_link" name="virtual_joint" parent_frame="map" type="fixed"/>
+  <virtual_joint child_link="left/base_link" name="virtual_joint" parent_frame="map" type="fixed"/>
   <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
-  <disable_collisions link1="left_base_link" link2="left_shoulder" reason="Never"/>
-  <disable_collisions link1="left_base_link" link2="left_shoulder_preroll" reason="Adjacent"/>
-  <disable_collisions link1="left_base_link" link2="left_upperarm" reason="Never"/>
-  <disable_collisions link1="left_base_link" link2="left_upperarm_preroll" reason="Never"/>
-  <disable_collisions link1="left_shoulder" link2="left_shoulder_preroll" reason="Adjacent"/>
-  <disable_collisions link1="left_shoulder" link2="left_upperarm" reason="Never"/>
-  <disable_collisions link1="left_shoulder" link2="left_upperarm_preroll" reason="Adjacent"/>
-  <disable_collisions link1="left_shoulder_preroll" link2="left_upperarm" reason="Never"/>
-  <disable_collisions link1="left_shoulder_preroll" link2="left_upperarm_preroll" reason="Never"/>
-  <disable_collisions link1="left_upperarm" link2="left_upperarm_preroll" reason="Adjacent"/>
-  <!-- <disable_collisions link1="left_hand" link2="left_wrist" reason="Never" />
-  <disable_collisions link1="left_hand" link2="left_gripper_link" reason="Never" /> -->
-  <disable_collisions link1="left_i1" link2="left_lowerarm" reason="Never"/>
-  <disable_collisions link1="left_i2" link2="left_lowerarm" reason="Never"/>
-  <disable_collisions link1="left_i3" link2="left_lowerarm" reason="Never"/>
-  <disable_collisions link1="left_i4" link2="left_lowerarm" reason="Never"/>
-  <disable_collisions link1="left_i5" link2="left_lowerarm" reason="Never"/>
-  <disable_collisions link1="left_i1" link2="left_wrist" reason="Never"/>
-  <disable_collisions link1="left_i2" link2="left_wrist" reason="Never"/>
-  <disable_collisions link1="left_i3" link2="left_wrist" reason="Never"/>
-  <disable_collisions link1="left_i4" link2="left_wrist" reason="Never"/>
-  <disable_collisions link1="left_i5" link2="left_wrist" reason="Never"/>
-  <disable_collisions link1="left_i1" link2="left_i2" reason="Never"/>
-  <disable_collisions link1="left_i1" link2="left_i3" reason="Never"/>
-  <disable_collisions link1="left_i1" link2="left_i4" reason="Never"/>
-  <disable_collisions link1="left_i1" link2="left_i5" reason="Never"/>
-  <disable_collisions link1="left_i2" link2="left_i3" reason="Never"/>
-  <disable_collisions link1="left_i2" link2="left_i4" reason="Never"/>
-  <disable_collisions link1="left_i2" link2="left_i5" reason="Never"/>
-  <disable_collisions link1="left_i3" link2="left_i4" reason="Never"/>
-  <disable_collisions link1="left_i3" link2="left_i5" reason="Never"/>
-  <disable_collisions link1="left_i4" link2="left_i5" reason="Never"/>
-  <disable_collisions link1="left_lowerarm" link2="left_lowerarm_preroll_d" reason="Adjacent"/>
-  <disable_collisions link1="left_lowerarm" link2="left_wrist" reason="Adjacent"/>
-  <disable_collisions link1="left_lowerarm_preroll_d" link2="left_wrist" reason="Never"/>
+  <disable_collisions link1="left/base_link" link2="left/shoulder" reason="Never"/>
+  <disable_collisions link1="left/base_link" link2="left/shoulder_preroll" reason="Adjacent"/>
+  <disable_collisions link1="left/base_link" link2="left/upperarm" reason="Never"/>
+  <disable_collisions link1="left/base_link" link2="left/upperarm_preroll" reason="Never"/>
+  <disable_collisions link1="left/shoulder" link2="left/shoulder_preroll" reason="Adjacent"/>
+  <disable_collisions link1="left/shoulder" link2="left/upperarm" reason="Never"/>
+  <disable_collisions link1="left/shoulder" link2="left/upperarm_preroll" reason="Adjacent"/>
+  <disable_collisions link1="left/shoulder_preroll" link2="left/upperarm" reason="Never"/>
+  <disable_collisions link1="left/shoulder_preroll" link2="left/upperarm_preroll" reason="Never"/>
+  <disable_collisions link1="left/upperarm" link2="left/upperarm_preroll" reason="Adjacent"/>
+  <disable_collisions link1="left/tool" link2="left/wrist" reason="Adjacent"/>
+  <disable_collisions link1="left/lowerarm" link2="left/lowerarm_preroll_d" reason="Adjacent"/>
+  <disable_collisions link1="left/lowerarm" link2="left/wrist" reason="Adjacent"/>
+  <disable_collisions link1="left/lowerarm_preroll_d" link2="left/wrist" reason="Never"/>
+  <disable_collisions link1="left/lowerarm" link2="left/wrist_ext_pulley" reason="Adjacent"/>
+  <disable_collisions link1="left/lowerarm" link2="left/wrist_flex_pulley" reason="Adjacent"/>
+  <disable_collisions link1="left/wrist" link2="left/wrist_ext_pulley" reason="Adjacent"/>
+  <disable_collisions link1="left/wrist" link2="left/wrist_flex_pulley" reason="Adjacent"/>
   <!--MIXED DISABLE COLLISIONS FOR BASE EE COLISIONS: set by hand or remove! -->
-  <disable_collisions link1="left_base_link" link2="left_lowerarm_preroll_u" reason="Never"/>
-  <disable_collisions link1="left_lowerarm" link2="left_shoulder" reason="Never"/>
-  <disable_collisions link1="left_lowerarm" link2="left_shoulder_preroll" reason="Never"/>
-  <disable_collisions link1="left_lowerarm" link2="left_upperarm" reason="Never"/>
-  <disable_collisions link1="left_lowerarm" link2="left_upperarm_preroll" reason="Never"/>
-  <disable_collisions link1="left_lowerarm_preroll_u" link2="left_shoulder" reason="Never"/>
-  <disable_collisions link1="left_lowerarm_preroll_u" link2="left_shoulder_preroll" reason="Never"/>
-  <disable_collisions link1="left_lowerarm_preroll_u" link2="left_upperarm" reason="Adjacent"/>
-  <disable_collisions link1="left_lowerarm_preroll_u" link2="left_upperarm_preroll" reason="Never"/>
-  <disable_collisions link1="left_lowerarm_preroll_u" link2="left_lowerarm_preroll_d" reason="Adjacent"/>
+  <disable_collisions link1="left/base_link" link2="left/lowerarm_preroll_u" reason="Never"/>
+  <disable_collisions link1="left/lowerarm" link2="left/shoulder" reason="Never"/>
+  <disable_collisions link1="left/lowerarm" link2="left/shoulder_preroll" reason="Never"/>
+  <disable_collisions link1="left/lowerarm" link2="left/upperarm" reason="Never"/>
+  <disable_collisions link1="left/lowerarm" link2="left/upperarm_preroll" reason="Never"/>
+  <disable_collisions link1="left/lowerarm_preroll_u" link2="left/shoulder" reason="Never"/>
+  <disable_collisions link1="left/lowerarm_preroll_u" link2="left/shoulder_preroll" reason="Never"/>
+  <disable_collisions link1="left/lowerarm_preroll_u" link2="left/upperarm" reason="Adjacent"/>
+  <disable_collisions link1="left/lowerarm_preroll_u" link2="left/upperarm_preroll" reason="Never"/>
+  <disable_collisions link1="left/lowerarm_preroll_u" link2="left/lowerarm_preroll_d" reason="Adjacent"/>
   <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
   <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
   <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->

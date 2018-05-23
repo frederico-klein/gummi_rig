@@ -202,7 +202,7 @@ left_arm:
   - LazyPRMstarkConfigDefault
   - SPARSkConfigDefault
   - SPARStwokConfigDefault
-  projection_evaluator: joints(left_shoulder_yaw,left_shoulder_roll)
+  projection_evaluator: joints(shoulder_yaw,shoulder_roll)
   longest_valid_segment_fraction: 0.005
 left_gripper:
   planner_configs:
