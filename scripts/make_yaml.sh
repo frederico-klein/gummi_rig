@@ -26,3 +26,5 @@ export GUMMI_RIG=${PWD}/../gummi_rig
 ./scripts/yaml_gen_.py ${GUMMI_RIGHTBASEPATH}/config/joint_limits.yaml ${GUMMI_LEFTBASEPATH}/config/joint_limits.yaml ${GUMMI_RIG}/config/joint_limits.yaml
 ./scripts/yaml_gen_.py ${GUMMI_RIGHTBASEPATH}/config/kinematics.yaml ${GUMMI_LEFTBASEPATH}/config/kinematics.yaml ${GUMMI_RIG}/config/kinematics.yaml
 ./scripts/yaml_gen_.py ${GUMMI_RIGHTBASEPATH}/config/ompl_planning.yaml ${GUMMI_LEFTBASEPATH}/config/ompl_planning.yaml ${GUMMI_RIG}/config/ompl_planning.yaml
+#./scripts/yaml_gen_.py ${GUMMI_RIGHTBASEPATH}/config/fake_controllers.yaml ${GUMMI_LEFTBASEPATH}/config/fake_controllers.yaml ${GUMMI_RIG}/config/fake_controllers.yaml
+#./scripts/yaml_gen_.py ${GUMMI_RIGHTBASEPATH}/config/controllers.yaml ${GUMMI_LEFTBASEPATH}/config/controllers.yaml ${GUMMI_RIG}/config/controllers.yaml
